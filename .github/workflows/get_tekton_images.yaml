@@ -2,7 +2,7 @@
 
 name: Get Tekton Images
 env:
-  VERSION: 1.26.6
+  VERSION: v0.29.0
 
 on:
   push:
@@ -17,11 +17,14 @@ jobs:
     - name: build
       run: |
       
-        VERSION=`cat tekton/version`
-        curl https://github.com/tektoncd/pipeline/releases/download/${VERSION}/release.yaml -o release.yaml
+        curl https://storage.googleapis.com/tekton-releases/pipeline/previous/${{ env.VERSION }}/release.yaml -o release.yaml
         cat release.yaml
         grep  -v "#" release.yaml | grep -v "^$"  > release1.yaml  ; sed -i 's/\-\-\-/###/g' release1.yaml
         python3  tekton/get_tekton_images.py
         cat tekton_images.json
+    - uses: actions/upload-artifact@v2
+      with: 
+        name: ${{ env.VERSION }}-tekton-images
+        path: tekton_images.json
         
     
