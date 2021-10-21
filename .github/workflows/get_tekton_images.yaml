@@ -17,7 +17,7 @@ jobs:
     - name: build
       run: |
       
-        VERSION=`cat tekton/versions`
+        VERSION=`cat tekton/version`
         curl https://github.com/tektoncd/pipeline/releases/download/${VERSION}/release.yaml -o release.yaml
         cat release.yaml
         grep  -v "#" release.yaml | grep -v "^$"  > release1.yaml  ; sed -i 's/\-\-\-/###/g' release1.yaml
