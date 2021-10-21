@@ -51,7 +51,7 @@ class Tekton :
         for i in self.arg_imgs:
             self.result.append({
                 "s_image": i,
-                "t_image": self.target_registry + i.split("/")[-1]
+                "t_image": self.target_registry + i.split("/")[-1].split("@")[0]
                 })
         newdata = json.dumps(self.result, indent=4)
         a=open(file_name, 'w')
