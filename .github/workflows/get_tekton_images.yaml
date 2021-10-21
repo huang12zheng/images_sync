@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Get Tekton Images
+env:
+  VERSION: 1.26.6
+
+on:
+  push:
+    paths:
+      - '.github/workflows/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: |
+        curl https://github.com/tektoncd/pipeline/releases/download/v0.29.0/release.yaml -o release.yaml
+        grep  -v "#" release.yaml | grep -v "^$"  > release1.yaml  ; sed -i 's/\-\-\-/###/g' release1.yaml
+        python3  tekton/get_tekton_images.py
+        cat tekton_images.json
+        
+    
