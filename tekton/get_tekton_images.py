@@ -1,6 +1,7 @@
 import yaml
 import json
 import sys
+import os
 
 class Tekton :
     def __init__(self, file_name, registry_user, registry_passwd):
