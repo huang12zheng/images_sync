@@ -71,7 +71,7 @@ class Tekton :
             docker_pull_cmd = "docker pull {0}".format(item["s_image"])
             docker_tag_cmd = "docker tag {0} {1}".format(item["s_image"], item["t_image"])
             docker_push_cmd = "docker push {0}".format(item["t_image"])
-            os.system(docker_tag_cmd + "&&" + docker_push_cmd)
+            os.system(docker_pull_cmd + "&&" + docker_tag_cmd + "&&" + docker_push_cmd)
             print("[GetImagesDone] {}".format(item))
         
 if __name__ == '__main__':
