@@ -16,7 +16,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: |
-        curl https://github.com/tektoncd/pipeline/releases/download/v0.29.0/release.yaml -o release.yaml
+      
+        VERSION=`cat tekton/versions`
+        curl https://github.com/tektoncd/pipeline/releases/download/${VERSION}/release.yaml -o release.yaml
+        cat release.yaml
         grep  -v "#" release.yaml | grep -v "^$"  > release1.yaml  ; sed -i 's/\-\-\-/###/g' release1.yaml
         python3  tekton/get_tekton_images.py
         cat tekton_images.json
