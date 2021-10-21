@@ -1,8 +1,9 @@
 import yaml
 import json
+import sys
 
 class Tekton :
-    def __init__(self, file_name):
+    def __init__(self, file_name, registry_user, registry_passwd):
         self.yaml_file = file_name
         self.arg_imgs = []
         self.split_str = "###"
@@ -13,9 +14,15 @@ class Tekton :
                         "entrypoint","nop","imagedigestexporter", 
                         "pullrequest-init", "cloud-sdk", "base", "powershell", "webhook"]
         self.result = []
+        self.registry_user = registry_user
+        self.registry_passwd = registry_passwd
 
     def load_yaml(self, data):
         content = yaml.load(data)
+        return content
+
+    def load_json(self, data):
+        content = json.loads(data)
         return content
 
     def get_images(self):
@@ -50,15 +57,21 @@ class Tekton :
         a.write(newdata)
         a.close()
 
+    def sync_images(self):
+        f = open("tekton_images.json", 'r').read()
+        content = load_json(f)
+        docker_login_cmd = "docker login -u {0} -p {1} {2}".format(
+            self.registry_user,
+            self.registry_passwd,
+            self.target_registry.split("/")[0])
+        os.system(docker_login_cmd)
+        for item in content:
+            docker_tag_cmd = "docker tag {0} {1}".format(item["s_image"], item["t_image"])
+            docker_push_cmd = "docker push {0}".format(item["t_image"])
+            os.system(docker_tag_cmd + "&&" + docker_push_cmd)
         
-
-
-
 if __name__ == '__main__':
-    tekton = Tekton("release1.yaml")
+    tekton = Tekton("release1.yaml", sys.argv[1], sys.argv[2])
     images = tekton.get_images()
     tekton.save_json_file(images, "tekton_images.json")
-    
-
-
-    
+    tekton.sync_images()
