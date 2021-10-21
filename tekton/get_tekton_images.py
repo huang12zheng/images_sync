@@ -59,7 +59,7 @@ class Tekton :
 
     def sync_images(self):
         f = open("tekton_images.json", 'r').read()
-        content = load_json(f)
+        content = self.load_json(f)
         docker_login_cmd = "docker login -u {0} -p {1} {2}".format(
             self.registry_user,
             self.registry_passwd,
