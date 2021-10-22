@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tekton-service
+  namespace: tekton-pipelines
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 256m
+spec:
+  rules:
+  - host: tekton.idevops.site
+    http:
+     paths:
+     - path: /
+       backend:
+          serviceName: tekton-dashboard
+          servicePort: 9097
