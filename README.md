@@ -46,7 +46,7 @@ gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.29.0@sha256:4
 1. 下载action最新一次构建中的制品；
 
 ```
-tekton_images.json
+tekton_images.json   # 文件中存放这个源镜像和目标镜像的映射键值对
 ```
 
 3. 运行脚本下载镜像: 
@@ -54,8 +54,9 @@ tekton_images.json
 ```
 # 脚本位置
 https://github.com/zeyangli/tekton_images_sync/blob/main/tekton/download_tekton_images.py
-python3 download_tekton_images.py
+python3 download_tekton_images.py   # 这个脚本会读取tekton_images.json，下载镜像；
 ```
+
 5. 手动更新release.yaml中的镜像，然后kubectl apply release.yaml  （后续有时间再优化脚本，实现自动更新release.yaml）
 
 
