@@ -19,18 +19,19 @@ class ConfigYaml(metaclass=YAMLObject):
         ConfigYaml.install_file_cache.append(input)
 
     def expand_images(self,input):
-        
-        # ConfigYaml.images.extend(input)
         input_diff = [ x for x in input
             if not hash_key(x) in 
                 map(hash_key,ConfigYaml.images)
         ]
         ConfigYaml.images.extend(input_diff)
+    
+    def add_images_cache(self,input):
+        ConfigYaml.images_cache.append(input)
 
 
     def save_yaml(self):
         # configYamlFile=open(configYamlPath, 'w')
-        with open(f'1{configYamlPath}', 'w') as configYamlFile:
+        with open(f'{configYamlPath}', 'w') as configYamlFile:
             ConfigYaml.install_file_cache = list(set(ConfigYaml.install_file_cache))
             # ConfigYaml.images = list(set(ConfigYaml.images))
 

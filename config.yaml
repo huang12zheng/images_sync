@@ -1,0 +1,21 @@
+expand_imgs:
+- gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard@sha256:95f71a2568ced67ec370b5360f88bec3280601908cac9e62dfbb801114480437
+images:
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.37.0@sha256:2a5239e0e458134870db8541008f358618a35d24247044a0041ab9ecb9ab2413images
+  t_image: ccr.ccs.tencentyun.com/tektons/controller:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.37.0@sha256:93f5ceecf1776ce8cfa7384df970152654c0f7b301c869c1fcba6a12b4fa2171
+  t_image: ccr.ccs.tencentyun.com/tektons/kubeconfigwriter:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.37.0@sha256:ec618dfa0fc23ae90105135be96bb8c0f9250bfd7682d9d5bab845ab6fd50528
+  t_image: ccr.ccs.tencentyun.com/tektons/git-init:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.37.0@sha256:599c0447b1e25edf27bb3599616b7315b28fb0a9bd01cf36843cb786cb475908
+  t_image: ccr.ccs.tencentyun.com/tektons/entrypoint:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.37.0@sha256:b27e010534e395bc9bec982858c8012ce065df6058038d7a649ed8be708b9aa4
+  t_image: ccr.ccs.tencentyun.com/tektons/nop:v0.37.0
+images_cache: []
+install_file_cache: []
+install_files:
+- target_registry: ccr.ccs.tencentyun.com/tektons/
+  url: https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
+namespace: dev
+prefixs:
+- gcr.io/
