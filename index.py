@@ -7,6 +7,7 @@ import os
 
 from yaml2object import YAMLObject
 from to_cycle_dict import to_cycle_dict
+from get_image_dict import get_image_dict,get_images
 
 configYamlPath = 'config.yaml'
 
@@ -18,14 +19,14 @@ class ConfigYaml(metaclass=YAMLObject):
         ConfigYaml.install_file_cache.append(input)
 
     def expand_images(self,input):
-        def hash_key(obj):
-            return f"{obj['s_image']}{obj['t_image']}"
+        
         # ConfigYaml.images.extend(input)
         input_diff = [ x for x in input
             if not hash_key(x) in 
                 map(hash_key,ConfigYaml.images)
         ]
         ConfigYaml.images.extend(input_diff)
+
 
     def save_yaml(self):
         # configYamlFile=open(configYamlPath, 'w')
@@ -35,37 +36,19 @@ class ConfigYaml(metaclass=YAMLObject):
 
             yaml.dump(to_cycle_dict(ConfigYaml), configYamlFile)
             configYamlFile.close()
+    def save_json_file(self):
+        input_diff = [ x for x in ConfigYaml.images
+            if not hash_key(x) in 
+                map(hash_key,ConfigYaml.images_cache)
+        ]
+        cycle_dict =to_cycle_dict(input_diff)
+        newdata = json.dumps(cycle_dict, indent=4)
+        a=open('diff_images.json', 'w')
+        a.write(newdata)
+        a.close()
 
-def get_images(content):
-    content = bytes.decode(content)
-    #! STEP 1: ignore #
-    ret = re.sub(r'#.*$', "", content)
-    #! STEP 2: filter image
-    ret = re.findall(f"image.*",ret)
-    ret = "".join(ret)
-
-    #! STEP 3: filter prefixs
-    images = []
-    prefixs = ['gcr.io/']
-    for prefix in prefixs:
-        prefix_rets = re.findall(f"[ \"]{prefix}.*?(?:[ \"\n])",ret)
-        for prefix_ret in prefix_rets:
-            tmp = re.sub(r'"', "", prefix_ret)
-            tmp = re.sub(r' ', "", tmp)
-            images.append(tmp)
-    return images
-
-def get_image_dict(target,images):
-    ret_list = list(
-        map(lambda x: {'s_image':x,'t_image':to_target_image(target,x)},images)
-    )
-    return ret_list
-
-def to_target_image(target,i):
-    return os.path.join(target,to_generial_image(i))
-
-def to_generial_image(i):
-    return i.split("/")[-1].split("@")[0]
+def hash_key(obj):
+            return f"{obj['s_image']}{obj['t_image']}"
 
 if __name__ == '__main__':
     #! Loop install file for request, and then get all image.
@@ -84,6 +67,7 @@ if __name__ == '__main__':
             ConfigYaml.add_install_file(install_file.url)
 
     ConfigYaml.save_yaml()
+    ConfigYaml.save_json_file()
 
     #! pull image and save
 
