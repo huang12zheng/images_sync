@@ -14,6 +14,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: |
+        pip3 install yaml2object
         python3 sync_images.py ${{ secrets.DOCKER_USER}} ${{ secrets.DOCKER_PASSWD}} ccr.ccs.tencentyun.com
 
     - uses: EndBug/add-and-commit@v7
