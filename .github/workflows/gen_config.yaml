@@ -20,7 +20,6 @@ jobs:
     - name: Write last result to env
       run: |-
         set -ex
-        `git diff config.yaml|wc -l`
         if [ "`git diff config.yaml|wc -l`" = "0" ]; then
           echo "did_write=true" >> $GITHUB_ENV
         fi
