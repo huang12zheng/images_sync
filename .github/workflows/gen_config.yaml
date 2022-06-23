@@ -5,7 +5,7 @@ name: Get Tekton Images
 on:
   push:
     paths:
-      - '.github/workflows/tekton.yaml'
+      - '.github/workflows/gen_config.yaml'
       - 'index.py'
 
 jobs:
