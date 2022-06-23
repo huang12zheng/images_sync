@@ -20,7 +20,10 @@ jobs:
     - name: Write last result to env
       run: |-
         set -ex
-        echo "did_write=$([[ -f ".did_write" ]] && echo "true" || echo "false")" >> $GITHUB_ENV
+        `git diff config.yaml|wc -l`
+        if [ "`git diff config.yaml|wc -l`" = "0" ]; then
+          echo "did_write=true" >> $GITHUB_ENV
+        fi
 
     - uses: EndBug/add-and-commit@v7
       if: ${{ env.did_write == 'true' }}
