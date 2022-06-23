@@ -17,6 +17,10 @@ jobs:
       run: |
         pip3 install yaml2object
         python3 index.py
+    - name: Write last result to env
+      run: |-
+        set -ex
+        echo "did_write=$([[ -f ".did_write" ]] && echo "true" || echo "false")" >> $GITHUB_ENV
 
     - uses: EndBug/add-and-commit@v7
       if: ${{ env.did_write == 'true' }}
