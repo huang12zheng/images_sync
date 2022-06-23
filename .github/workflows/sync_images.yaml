@@ -6,7 +6,7 @@ on:
   push:
     paths:
       - '.github/workflows/sync_images.yaml'
-      - 'tekton_images.yaml'
+      - 'diff_images.json'
 
 jobs:
   build:
@@ -17,6 +17,12 @@ jobs:
       run: |
         pip3 install yaml2object
         python3 sync_images.py ${{ secrets.DOCKER_USER}} ${{ secrets.DOCKER_PASSWD}} ccr.ccs.tencentyun.com
+    - name: Write last result to env
+      run: |-
+        set -ex
+        if [ "`git diff config.yaml|wc -l`" != "0" ]; then
+          echo "did_write=true" >> $GITHUB_ENV
+        fi
 
     - uses: EndBug/add-and-commit@v7
       if: ${{ env.did_write == 'true' }}
