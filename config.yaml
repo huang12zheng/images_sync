@@ -19,7 +19,25 @@ images:
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/workingdirinit:v0.37.0
 - s_image: gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:27b2c22bf259d9bc1a291e99c63791ba0c27a04d2db0a43241ba0f1f20f4067f
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/cloud-sdk
-images_cache: []
+images_cache:
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.37.0@sha256:2a5239e0e458134870db8541008f358618a35d24247044a0041ab9ecb9ab2413images
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.37.0@sha256:93f5ceecf1776ce8cfa7384df970152654c0f7b301c869c1fcba6a12b4fa2171
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/kubeconfigwriter:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.37.0@sha256:ec618dfa0fc23ae90105135be96bb8c0f9250bfd7682d9d5bab845ab6fd50528
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/git-init:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.37.0@sha256:599c0447b1e25edf27bb3599616b7315b28fb0a9bd01cf36843cb786cb475908
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/entrypoint:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.37.0@sha256:b27e010534e395bc9bec982858c8012ce065df6058038d7a649ed8be708b9aa4
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/nop:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.37.0@sha256:cf0a3e0a9e90201626bd1ae805386e3977c744d8e099911f825d33501d2f8f33
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/imagedigestexporter:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.37.0@sha256:bce6c45c9485982099bd6f66d00e96337a8ab5c19de4699414a0730581dcf0ec
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/pullrequest-init:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.37.0@sha256:dbe778e14ebb4be0a81e917385b79687aba3e278e38e78a3290ae7c32f0a46e8
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/workingdirinit:v0.37.0
+- s_image: gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:27b2c22bf259d9bc1a291e99c63791ba0c27a04d2db0a43241ba0f1f20f4067f
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/cloud-sdk
 install_file_cache:
 - https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
 install_files:
