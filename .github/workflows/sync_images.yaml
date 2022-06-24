@@ -16,6 +16,7 @@ jobs:
     - name: build
       run: |
         pip3 install yaml2object
+        set -ex
         python3 sync_images.py ${{ secrets.DOCKER_USER}} ${{ secrets.DOCKER_PASSWD}} ccr.ccs.tencentyun.com
     - name: Write last result to env
       run: |-
