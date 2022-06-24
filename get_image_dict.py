@@ -11,7 +11,7 @@ def get_images(content):
     ret = re.sub(r'#.*$', "", content)
     #! STEP 2: filter image
     ret = re.findall(f"image.*",ret)
-    ret = "".join(ret)
+    ret = "\n".join(ret)
 
     #! STEP 3: filter prefixs
     images = []
@@ -21,6 +21,7 @@ def get_images(content):
         for prefix_ret in prefix_rets:
             tmp = re.sub(r'"', "", prefix_ret)
             tmp = re.sub(r' ', "", tmp)
+            tmp = re.sub(r'\n', "", tmp)
             images.append(tmp)
     return images
 
