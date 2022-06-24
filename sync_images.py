@@ -25,8 +25,7 @@ class Docker:
             docker_pull_cmd = "docker pull {0}".format(item["s_image"])
             docker_tag_cmd = "docker tag {0} {1}".format(item["s_image"], item["t_image"])
             docker_push_cmd = "docker push {0}".format(item["t_image"])
-            ret = os.system(docker_pull_cmd + "&&" + docker_tag_cmd + "&&" + docker_push_cmd )
-            ret = 0
+            ret = os.system(docker_pull_cmd + "&&" + docker_tag_cmd + "&&" + docker_push_cmd)
             if ret == 0:
                 print("[GetImagesDone] {}".format(item))
                 ConfigYaml.add_images_cache(item)
@@ -35,6 +34,7 @@ class Docker:
         ConfigYaml.save_yaml()
 
 if __name__ == '__main__':
-    tekton = Docker(sys.argv[1], sys.argv[2],sys.argv[3])
+    # tekton = Docker(sys.argv[1], sys.argv[2],sys.argv[3])
+    tekton = Docker("805104533", "hz520self","ccr.ccs.tencentyun.com")
     # tekton = Docker('1','2','3')
     tekton.sync_images()

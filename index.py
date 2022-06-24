@@ -24,9 +24,11 @@ class ConfigYaml(metaclass=YAMLObject):
                 map(hash_key,ConfigYaml.images)
         ]
         ConfigYaml.images.extend(input_diff)
-    
+
     def add_images_cache(self,input):
-        ConfigYaml.images_cache.append(input)
+        #! 用补偿模式可会有重复的
+        if not hash_key(input) in map(hash_key,ConfigYaml.images_cache):
+            ConfigYaml.images_cache.append(input)
 
 
     def save_yaml(self):
