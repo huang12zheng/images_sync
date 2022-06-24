@@ -9,3 +9,6 @@ it is all you need to download
 
 > please check dir .github
 
+# apply file
+use `sed -i 's/@sha[^"]*//g' tekton-latest.yaml ` to make digest loss
+> curl https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml -o tekton-latest.yaml
