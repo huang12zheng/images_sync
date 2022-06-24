@@ -23,10 +23,20 @@ images:
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook:v0.37.0
 - s_image: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/dashboard
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.20.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller:v0.20.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.20.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/eventlistenersink:v0.20.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.20.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook:v0.20.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.20.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/interceptors:v0.20.0
 images_cache:
 - s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.37.0
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook:v0.37.0
 install_file_cache:
+- https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+- https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
 - https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 - https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
 install_files:
