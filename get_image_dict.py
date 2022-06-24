@@ -17,11 +17,12 @@ def get_images(content):
     images = []
     prefixs = ['gcr.io/']
     for prefix in prefixs:
-        prefix_rets = re.findall(f"[ \"]{prefix}.*?(?:[ \"\n])",ret)
+        prefix_rets = re.findall(f"[ \"]{prefix}[^\"\n ]*",ret)
         for prefix_ret in prefix_rets:
             tmp = re.sub(r'"', "", prefix_ret)
             tmp = re.sub(r' ', "", tmp)
             tmp = re.sub(r'\n', "", tmp)
+            tmp = re.sub(r'@sha.*', "", tmp)
             images.append(tmp)
     return images
 
