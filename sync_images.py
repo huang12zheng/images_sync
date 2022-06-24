@@ -37,7 +37,7 @@ class Docker:
         if isSuccess == False: os._exit(1)
 
 if __name__ == '__main__':
-    # tekton = Docker(sys.argv[1], sys.argv[2],sys.argv[3])
-    tekton = Docker("805104533", "hz520self","ccr.ccs.tencentyun.com")
+    tekton = Docker(sys.argv[1], sys.argv[2],sys.argv[3])
+    # tekton = Docker("805104533", "xx","ccr.ccs.tencentyun.com")
     # tekton = Docker('1','2','3')
     tekton.sync_images()

@@ -21,7 +21,6 @@ if __name__ == '__main__':
         ret = os.system(docker_pull_cmd + "&&" + docker_tag_cmd + "&&" + docker_rm_cmd + '&&'
             + docker_save_cmd + '&&' + ctr_image_import
         )
-        ret = 0
         if ret == 0:
             print("[GetImagesDone] {}".format(image))
         else:
