@@ -42,9 +42,29 @@ images_cache:
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller:v0.37.0
 - s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.37.0@sha256:2a5239e0e458134870db8541008f358618a35d24247044a0041ab9ecb9ab2413
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/kubeconfigwriter:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/git-init:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/entrypoint:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/nop:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/imagedigestexporter:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/pullrequest-init:v0.37.0
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/workingdirinit:v0.37.0
+- s_image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/cloud-sdk
+- s_image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.37.0
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook:v0.37.0
 install_file_cache:
-- https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
 - https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+- https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
 install_files:
 - target_registry: ccr.ccs.tencentyun.com/zhifou-devops/
   url: https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
