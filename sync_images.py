@@ -20,6 +20,7 @@ class Docker:
             self.registry_passwd,
             self.target_registry)
         os.system(docker_login_cmd)
+        isSuccess = True
         for item in content:
             print("[GetImages] {}".format(item))
             docker_pull_cmd = "docker pull {0}".format(item["s_image"])
@@ -31,7 +32,9 @@ class Docker:
                 ConfigYaml.add_images_cache(item)
             else:
                 print("[Error] {}".format(item))
+                isSuccess = False
         ConfigYaml.save_yaml()
+        if isSuccess == False: os._exit(1)
 
 if __name__ == '__main__':
     # tekton = Docker(sys.argv[1], sys.argv[2],sys.argv[3])
