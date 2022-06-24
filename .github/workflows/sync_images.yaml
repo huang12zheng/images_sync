@@ -8,6 +8,8 @@ on:
       - '.github/workflows/sync_images.yaml'
       - 'diff_images.json'
 
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-18.04
