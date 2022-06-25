@@ -64,12 +64,14 @@ images_cache:
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook:v0.20.0
 - s_image: gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.20.0
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/interceptors:v0.20.0
+- s_image: gcr.io/k8s-staging-gateway-api/admission-server:v0.4.3
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/admission-server:v0.4.3
 install_file_cache:
-- https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
-- https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
-- https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
 - https://raw.githubusercontent.com/projectcontour/contour/release-1.21/examples/render/contour-gateway-provisioner.yaml
+- https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 - https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
+- https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.37.0/release.yaml
+- https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
 install_files:
 - target_registry: ccr.ccs.tencentyun.com/zhifou-devops/
   url: https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
