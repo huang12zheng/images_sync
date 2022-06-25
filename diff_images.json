@@ -1,6 +1,0 @@
-[
-    {
-        "s_image": "gcr.io/k8s-staging-gateway-api/admission-server:v0.4.3",
-        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/admission-server:v0.4.3"
-    }
-]

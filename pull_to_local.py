@@ -35,4 +35,4 @@ if __name__ == '__main__':
         else:
             print("[Error] {}".format(image))
     with open("diff_images.json", 'w') as file:
-        file.write(content)
+        file.write(json.dumps(content))
