@@ -17,11 +17,25 @@ images:
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook
 - s_image: gcr.io/knative-releases/knative.dev/net-contour/cmd/controller
   t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller
-images_cache: []
+images_cache:
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/queue
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/queue
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/activator
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/activator
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/autoscaler
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/controller
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/controller
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/domain-mapping
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/domain-mapping-webhook
+- s_image: gcr.io/knative-releases/knative.dev/serving/cmd/webhook
+  t_image: ccr.ccs.tencentyun.com/zhifou-devops/webhook
 install_file_cache:
-- https://raw.githubusercontent.com/projectcontour/contour/release-1.21/examples/render/contour-gateway-provisioner.yaml
-- https://github.com/knative/serving/releases/download/knative-v1.5.0/serving-core.yaml
 - https://github.com/knative/net-contour/releases/download/knative-v1.5.0/net-contour.yaml
+- https://github.com/knative/serving/releases/download/knative-v1.5.0/serving-core.yaml
+- https://raw.githubusercontent.com/projectcontour/contour/release-1.21/examples/render/contour-gateway-provisioner.yaml
 install_files:
 - target_registry: ccr.ccs.tencentyun.com/zhifou-devops/
   url: https://raw.githubusercontent.com/projectcontour/contour/release-1.21/examples/render/contour-gateway-provisioner.yaml
