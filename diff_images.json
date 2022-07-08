@@ -1,0 +1,30 @@
+[
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/queue",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/queue"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/activator",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/activator"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/autoscaler"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/controller",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/controller"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/domain-mapping"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/domain-mapping-webhook"
+    },
+    {
+        "s_image": "gcr.io/knative-releases/knative.dev/serving/cmd/webhook",
+        "t_image": "ccr.ccs.tencentyun.com/zhifou-devops/webhook"
+    }
+]
